@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         spinnerList.add("Reprint List");
         spinnerList.add("Reprint Bank Slip");
         spinnerList.add("Manual Settlement");
-        spinnerList.add("Download Parameters");
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerList);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -147,9 +146,6 @@ public class MainActivity extends AppCompatActivity {
             case "Manual Settlement":
                 sCommand = "EndOfDay";
                 break;
-            case "Download Parameters":
-                sCommand = "ParameterDownload";
-                break;
             default:
                 sCommand = "Sale";
                 break;
@@ -214,6 +210,8 @@ public class MainActivity extends AppCompatActivity {
             sTmp = "This is an Intent Test";
         }
         launchIntent.putExtra("EcrHostTransfer", sTmp);
+
+        launchIntent.putExtra("Reference","REF# 12345678");
 
         EditText bLic = findViewById(R.id.license);
 
