@@ -58,44 +58,6 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(dataAdapter);
     }
 
-    public void btnPurchase(View view) {
-        Intent launchIntent =  new Intent();
-        launchIntent.setAction("CenDroid");
-        launchIntent.putExtra("Operation", "Sale");
-
-        // Get the time
-        Long milliseconds = java.lang.System.currentTimeMillis();
-        String timeString = milliseconds.toString();
-        launchIntent.putExtra("Time", timeString);
-        launchIntent.putExtra("Caller", "Caller Name");
-
-        String hashed = hashString("SHA-1",timeString);
-        hashed = hashString("SHA-256",hashed);
-        hashed = hashString("SHA-512",hashed);
-        launchIntent.putExtra("InvocationKey", hashed);
-
-        EditText bAmount = findViewById(R.id.amount);
-
-        Float fAmt;
-        String amtStr = bAmount.getText().toString();
-        String sTmp = amtStr.substring(amtStr.length()-1);
-        fAmt = Float.parseFloat(amtStr);
-        if (amtStr.length()-amtStr.indexOf('.') <= 2)
-            fAmt *= 10;
-        else if (sTmp.equals("0")) {
-            fAmt *= 10;
-        }
-        launchIntent.putExtra("Amount",fAmt);
-        launchIntent.putExtra("EcrHostTransfer", "This is an Intent Test");
-        launchIntent.putExtra("AppName","ACS-");
-        launchIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        try {
-            startActivityForResult(launchIntent, 1);
-        } catch (Exception e) {
-            Log.d("InvokeDemo",e.getMessage());
-        }
-    }
-
     private String hashString(String type,String input) {
         Log.d("ACS", "Hashing: " + input);
 
@@ -241,28 +203,7 @@ public class MainActivity extends AppCompatActivity {
         dParse = dParse.multiply(BigDecimal.valueOf(100));
         iAmount = dParse.setScale(0, RoundingMode.HALF_UP).intValue();
         launchIntent.putExtra("CashbackAmount", iAmount);
-
-
-        /*Float fAmt;
-        String amtStr;
-        if (bAmount.getText().length() > 0) {
-            amtStr = bAmount.getText().toString();
-        }
-        else {
-            amtStr = "0.00";
-        }
-        fAmt = Float.parseFloat(amtStr);
-        launchIntent.putExtra("Amount",fAmt);
-
-        if (bCashAmount.getText().length() > 0) {
-            amtStr = bCashAmount.getText().toString();
-        }
-        else {
-            amtStr = "0.00";
-        }
-        fAmt = Float.parseFloat(amtStr);
-        launchIntent.putExtra("CashbackAmount", fAmt);*/
-
+        launchIntent.putExtra("CustomHeading","DebiCheck");
 
         String sTmp;
         EditText bExtraData = findViewById(R.id.extradata);
@@ -315,23 +256,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
- //       super.onActivityResult(requestCode, resultCode, data)
- //       var sTxt: String = ""
-//            Toast.makeText(this, "Data Received $requestCode ResultCode $resultCode", Toast.LENGTH_LONG).show()
-//        var results: Bundle ?= data?.extras
-//        val key: String
-//        if (results != null) {
-
-            //var payload: Bundle = results.get("Payload") as Bundle
-            //for (key in payload.keySet()) {
-//                Log.d("Bundle Debug", key + " = \"" + payload.get(key) + "\"")
-           //     sTxt += key + " = \"" + payload.get(key) + "\"" + "\n"
-            //}
-        //}
-        //if (sTxt.isNotEmpty()) {
-         //   txtView?.text = sTxt
-        //}
-    //}
 
 }
