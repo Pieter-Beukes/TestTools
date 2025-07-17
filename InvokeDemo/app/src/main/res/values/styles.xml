@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+    <!-- Nedbank Green -->
+    <!--        <item name="android:windowActivityTransitions">true</item>
+            <item name="colorPrimary">#037D2A</item>
+            <item name="colorSecondary">#089d1a</item>
+            <item name="colorPrimaryVariant">#FFC107</item>
+            <item name="android:colorPrimaryDark">#2196F3</item>
+            <item name="android:windowEnterTransition">@transition/explode</item>
+            <item name="android:windowExitTransition">@transition/explode</item> -->
+
+    <!-- Urovo Red -->
+    <!--<item name="android:windowActivityTransitions">true</item>
+    <item name="colorPrimary">#ff331a</item>
+    <item name="colorSecondary">#dd9d1a</item>
+    <item name="colorPrimaryVariant">#FFC107</item>
+    <item name="android:colorPrimaryDark">#cc0000</item>
+    <item name="android:windowEnterTransition">@transition/explode</item>
+    <item name="android:windowExitTransition">@transition/explode</item>-->
+
+    <!-- BLT Blue -->
+    <item name="android:windowActivityTransitions">true</item>
+    <item name="colorPrimary">#021E4D</item>
+    <item name="colorSecondary">#2196F3</item>
+    <item name="colorPrimaryVariant">#07FFFF</item>
+    <item name="android:colorPrimaryDark">#14598F</item>
+    <item name="android:windowEnterTransition">@transition/explode</item>
+    <item name="android:windowExitTransition">@transition/explode</item>
+
+</style></resources>
